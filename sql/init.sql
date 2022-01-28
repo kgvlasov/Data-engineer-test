@@ -1,10 +1,15 @@
-CREATE SCHEMA data;
+CREATE SCHEMA test_task_kgvlasov;
 
-CREATE TABLE data.data (
+CREATE TABLE test_task_kgvlasov.weather_raw_data (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  value TEXT NOT NULL
+  date timestamp NOT NULL,
+  last_updated timestamp NOT NULL, 
+  temp_c float4,
+  feelslike_c float4
 );
 
-INSERT INTO data.data (name, value) VALUES ('foo', 'bar');
-INSERT INTO data.data (name, value) VALUES ('baz', 'qux');
+CREATE TABLE test_task_kgvlasov.data_mart (
+  date timestamp NOT NULL, 
+  state varchar(15) NOT NULL,
+  value float4
+);
