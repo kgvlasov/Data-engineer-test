@@ -14,6 +14,7 @@ services:
       - POSTGRESQL_PASSWORD=bitnami1
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
+      - WEATHER_API_KEY=d33f5b33f0004357804211001222501
   redis:
     image: docker.io/bitnami/redis:6.0
     volumes:
@@ -31,6 +32,7 @@ services:
       - AIRFLOW_EXECUTOR=CeleryExecutor
       - AIRFLOW_WEBSERVER_HOST=airflow
       - AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.basic_auth
+      - WEATHER_API_KEY=d33f5b33f0004357804211001222501
     volumes:
       - airflow_scheduler_data:/bitnami
       - ./dags:/opt/bitnami/airflow/dags
@@ -44,6 +46,7 @@ services:
       - AIRFLOW_EXECUTOR=CeleryExecutor
       - AIRFLOW_WEBSERVER_HOST=airflow
       - AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.basic_auth
+      - WEATHER_API_KEY=d33f5b33f0004357804211001222501
     volumes:
       - airflow_worker_data:/bitnami
       - ./dags:/opt/bitnami/airflow/dags
@@ -58,6 +61,7 @@ services:
       - AIRFLOW_DATABASE_PASSWORD=bitnami1
       - AIRFLOW_EXECUTOR=CeleryExecutor
       - AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.default
+      - WEATHER_API_KEY=d33f5b33f0004357804211001222501
     ports:
       - '8080:8080'
     healthcheck:
